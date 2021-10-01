@@ -5,9 +5,9 @@ networks:
     external: true
     
 services:
-  §§INSTANCE-molgenis-emx2-postgres:
+  §§INSTANCE-molgenis-emx_two-postgres:
     image: postgres:13-alpine
-    container_name: §§INSTANCE-molgenis-emx2-postgres:
+    container_name: §§INSTANCE-molgenis-emx_two-postgres:
     networks:
       - bibbox-default-network
     environment:
@@ -20,9 +20,9 @@ services:
       - ./data/psql:/var/lib/postgresql/data
     command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024'
     
-  §§INSTANCE-molgenis-emx2:
+  §§INSTANCE-molgenis-emx_two:
     image: molgenis/molgenis-emx2
-    container_name: §§INSTANCE-molgenis-emx2:
+    container_name: §§INSTANCE-molgenis-emx_two:
     networks:
       - bibbox-default-network
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
     ports:
       - "8081:8080"
     depends_on:
-      - §§INSTANCE-molgenis-emx2-postgres:
+      - §§INSTANCE-molgenis-emx_two-postgres:
     restart: on-failure
     proxy:
      TYPE: PRIMARY
