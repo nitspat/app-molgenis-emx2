@@ -1,0 +1,39 @@
+version: '3'
+
+networks:
+  bibbox-default-network:
+    external: true
+    
+services:
+  §§INSTANCE-molgenis-emx2-postgres:
+    image: postgres:13-alpine
+    networks:
+      - bibbox-default-network
+    environment:
+      - POSTGRES_USER=molgenis
+      - POSTGRES_PASSWORD=molgenis
+      - POSTGRES_DB=molgenis
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/psql:/var/lib/postgresql/data
+    command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024'
+    
+  §§INSTANCE-molgenis-emx2:
+    image: molgenis/molgenis-emx2
+    networks:
+      - bibbox-default-network
+    restart: unless-stopped
+    environment:
+      - MOLGENIS_POSTGRES_URI=jdbc:postgresql://postgres/molgenis
+    ports:
+      - "8081:8080"
+    depends_on:
+      - §§INSTANCE-molgenis-emx2-postgres:
+    restart: on-failure
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE
+     TEMPLATE: default
+     DISPLAYNAME: 'Molgenis-emx2'  
+
