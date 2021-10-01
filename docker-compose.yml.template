@@ -7,6 +7,7 @@ networks:
 services:
   §§INSTANCE-molgenis-emx2-postgres:
     image: postgres:13-alpine
+    container_name: §§INSTANCE-molgenis-emx2-postgres:
     networks:
       - bibbox-default-network
     environment:
@@ -21,6 +22,7 @@ services:
     
   §§INSTANCE-molgenis-emx2:
     image: molgenis/molgenis-emx2
+    container_name: §§INSTANCE-molgenis-emx2:
     networks:
       - bibbox-default-network
     restart: unless-stopped
