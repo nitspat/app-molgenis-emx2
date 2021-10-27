@@ -14,7 +14,7 @@ services:
       - POSTGRES_PASSWORD=molgenis
       - POSTGRES_DB=molgenis
     ports:
-      - "5432:5432"
+      - "5433:5433"
     volumes:
       - ./data/psql:/var/lib/postgresql/data
     command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024'
@@ -27,7 +27,7 @@ services:
     environment:
       - MOLGENIS_POSTGRES_URI=jdbc:postgresql://postgres/molgenis
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
       - postgres
     restart: on-failure
