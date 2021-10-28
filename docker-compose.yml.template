@@ -10,8 +10,6 @@ services:
     container_name: §§INSTANCE-molgenis-emxtwo-postgres
     networks:
       - bibbox-default-network
-    links:
-      - §§INSTANCE-molgenis-emxtwo-postgres-db:postgres
     environment:
       - POSTGRES_USER=molgenis
       - POSTGRES_PASSWORD=molgenis
@@ -28,6 +26,8 @@ services:
     networks:
       - bibbox-default-network
     restart: unless-stopped
+    links:
+      - §§INSTANCE-molgenis-emxtwo-postgres:postgres
     environment:
       - MOLGENIS_POSTGRES_URI=jdbc:postgresql://postgres/molgenis
     ports:
