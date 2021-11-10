@@ -21,7 +21,7 @@ services:
     command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024'
     
   §§INSTANCE-molgenis-emxtwo:
-    image: molgenis/molgenis-emx2
+    image: molgenis/molgenis-emx2:8.17.0
     container_name: §§INSTANCE-molgenis-emxtwo
     networks:
       - bibbox-default-network
