@@ -20,7 +20,6 @@ To install the app locally execute the commands:
 * Run **docker-compose up** in the root folder of the project: 
   * `docker-compose up -d`
  
-
 After the installation (might take a few minutes) open **http://localhost** in your browser to access Molgenis.
 The default admin login is **user:admin/pw:admin**, this can be changed in `docker-compose.yml`.
 
