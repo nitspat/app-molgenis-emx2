@@ -6,7 +6,7 @@ After the installation follow these [instructions](INSTALL-APP.md)
 
 ## Hints
 * approx. time with medium fast internet connection: **15 minutes**
-* initial user/password: **admin / \<set during instalations\>**
+* initial user/password: **admin / admin**
 
 ## Standalone Installation
 
@@ -20,8 +20,8 @@ To install the app locally execute the commands:
 * Run **docker-compose up** in the root folder of the project: 
   * `docker-compose up -d`
  
-After the installation (might take a few minutes) open **http://localhost** in your browser to access Molgenis.
-The default admin login is **user:admin/pw:admin**, this can be changed in `docker-compose.yml`.
+After the installation (might take a few minutes) open **http://localhost:8080** in your browser to access Molgenis.
+The default admin login is **user:admin/pw:admin**.
 
 ## Install within BIBBOX
 
@@ -31,14 +31,5 @@ Within BIBBOX you can use the [BIBBOX APP Store](http://bibbox.readthedocs.io/en
  * [molgenis/molgenis-emx2](https://hub.docker.com/r/molgenis/molgenis-emx2), offical molgenis-frontend container 
  * [postgres:13-alpine](https://hub.docker.com/_/postgres), offical postgres container
  
-
-## Install Environment Variables
-
- * ADMIN_PASSWORD = admin user password
- 
-The default values for the standalone installation are:
-
- * ADMIN_PASSWORD = admin
-
 ## Mounted Volumes
-
+* ./data/psql

@@ -20,14 +20,14 @@ services:
     command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024'
     
   emx2:
-    image: molgenis/molgenis-emx2
+    image: molgenis/molgenis-emx2:8.26.4
     networks:
       - bibbox-default-network
     restart: unless-stopped
     environment:
       - MOLGENIS_POSTGRES_URI=jdbc:postgresql://postgres/molgenis
     ports:
-      - "8081:8081"
+      - "8080:8080"
     depends_on:
       - postgres
     restart: on-failure
